@@ -1,0 +1,5 @@
+lxqt-notificationd (0.7.96-1) unstable; urgency=low
+
+  * Initial release (Closes: #747602)
+
+ -- Alf Gaida <agaida@siduction.org>  Wed, 10 Sep 2014 00:54:55 +0200
