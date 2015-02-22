@@ -1,0 +1,9 @@
+/*.debhelper
+/*.log
+/*.substvars
+/files
+
+/lxqt-notificationd/
+/lxqt-notificationd-dbg/
+/lxqt-notificationd-qt5/
+/lxqt-notificationd-qt5-dbg/
