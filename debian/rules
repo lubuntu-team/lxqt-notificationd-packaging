@@ -3,8 +3,11 @@
 
 
 %:
-	dh ${@} --buildsystem cmake --parallel  --dbg-package=lxqt-notificationd-dbg
+	dh ${@} --buildsystem cmake --parallel
 
 
 override_dh_auto_install:
 	dh_auto_install -- DESTDIR=$(CURDIR)/debian/lxqt-notificationd
+
+override_dh_strip:
+	dh_strip --dbg-package=lxqt-notificationd-dbg
