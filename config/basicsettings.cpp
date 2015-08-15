@@ -39,28 +39,26 @@ BasicSettings::BasicSettings(LxQt::Settings* settings, QWidget *parent) :
 
     restoreSettings();
 
-    connect(topLeftButton, SIGNAL(clicked()), this, SLOT(updateNotification()));
-    connect(topRightButton, SIGNAL(clicked()), this, SLOT(updateNotification()));
-    connect(bottomRightButton, SIGNAL(clicked()), this, SLOT(updateNotification()));
-    connect(bottomLeftButton, SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(topLeftRB,      SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(topCenterRB,    SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(topRightRB,     SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(centerLeftRB,   SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(centerCenterRB, SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(centerRightRB,  SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(bottomLeftRB,   SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(bottomCenterRB, SIGNAL(clicked()), this, SLOT(updateNotification()));
+    connect(bottomRightRB,  SIGNAL(clicked()), this, SLOT(updateNotification()));
 
     LxQt::Notification serverTest;
     QString serverName = serverTest.serverInfo().name;
     if (serverName != "lxqt-notificationd")
     {
         if (serverName.isEmpty())
-        {
-            warningLabel->setText(tr(
-                "<b>Warning:</b> No notifications daemon is running.\n"
-                "A fallback will be used."));
-        }
+            warningLabel->setText(tr("<b>Warning:</b> No notifications daemon is running.\n"
+            "A fallback will be used."));
         else
-        {
-            warningLabel->setText(tr(
-                "<b>Warning:</b> A third-party notifications daemon (%1) is running.\n"
-                "These settings won't have any effect on it!"
-                ).arg(serverName));
-        }
+            warningLabel->setText(tr("<b>Warning:</b> A third-party notifications daemon (%1) is running.\n"
+            "These settings won't have any effect on it!").arg(serverName));
     }
 }
 
@@ -70,33 +68,53 @@ BasicSettings::~BasicSettings()
 
 void BasicSettings::restoreSettings()
 {
-    QString placement = mSettings->value("placement", "bottom-right").toString().toLower();
-    if (placement == "bottom-right")
-        bottomRightButton->setChecked(true);
-    else if (placement == "bottom-left")
-        bottomLeftButton->setChecked(true);
-    else if (placement == "top-right")
-        topRightButton->setChecked(true);
-    else if (placement == "top-left")
-        topLeftButton->setChecked(true);
-    else
-        bottomRightButton->setChecked(true);
+    QString placement = mSettings->value(QStringLiteral("placement"),
+                                         QStringLiteral("bottom-right")).toString().toLower();
+
+    if (QStringLiteral("top-left") == placement)
+        topLeftRB->setChecked(true);
+    else if (QStringLiteral("top-center") == placement)
+        topCenterRB->setChecked(true);
+    else if (QStringLiteral("top-right") == placement)
+        topRightRB->setChecked(true);
+    else if (QStringLiteral("center-left") == placement)
+        centerLeftRB->setChecked(true);
+    else if (QStringLiteral("center-center") == placement)
+        centerCenterRB->setChecked(true);
+    else if (QStringLiteral("center-right") == placement)
+        centerRightRB->setChecked(true);
+    else if (QStringLiteral("bottom-left") == placement)
+        bottomLeftRB->setChecked(true);
+    else if (QStringLiteral("bottom-center") == placement)
+        bottomCenterRB->setChecked(true);
+    else if (QStringLiteral("bottom-right") == placement)
+        bottomRightRB->setChecked(true);
 }
 
 void BasicSettings::updateNotification()
 {
-    if (bottomRightButton->isChecked())
-        mSettings->setValue("placement", "bottom-right");
-    else if (bottomLeftButton->isChecked())
-        mSettings->setValue("placement", "bottom-left");
-    else if (topRightButton->isChecked())
-        mSettings->setValue("placement", "top-right");
-    else if (topLeftButton->isChecked())
-        mSettings->setValue("placement", "top-left");
+    QString align;
+    if (topLeftRB->isChecked())
+        align = QStringLiteral("top-left");
+    else if (topCenterRB->isChecked())
+        align = QStringLiteral("top-center");
+    else if (topRightRB->isChecked())
+        align = QStringLiteral("top-right");
+    else if (centerLeftRB->isChecked())
+        align = QStringLiteral("center-left");
+    else if (centerCenterRB->isChecked())
+        align = QStringLiteral("center-center");
+    else if (centerRightRB->isChecked())
+        align = QStringLiteral("center-right");
+    else if (bottomLeftRB->isChecked())
+        align = QStringLiteral("bottom-left");
+    else if (bottomCenterRB->isChecked())
+        align = QStringLiteral("bottom-center");
+    else // if (bottomRightRB->isChecked())
+        align = QStringLiteral("bottom-right");
 
-    LxQt::Notification::notify(//"lxqt-config-notificationd",
-                              tr("Notification demo"),
-                              tr("This is a test notification.\n"
-                                 "All notifications will now appear here on LXQt."),
-                              "lxqt-logo.png");
+    mSettings->setValue(QStringLiteral("placement"), align);
+    LxQt::Notification::notify(tr("Notification demo ") + align,
+                               tr("This is a test notification.\n All notifications will now appear here on LXQt."),
+                               QStringLiteral("lxqt-logo.png"));
 }
