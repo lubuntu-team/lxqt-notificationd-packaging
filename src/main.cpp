@@ -34,7 +34,7 @@
 #include "notifyd.h"
 
 
-/*! \mainpage LXDE-Qt notification daemon
+/*! \mainpage LXQt notification daemon
  *
  * Running in user session; implementing standard as described in:
  *    docs/nodification-spec-latest.html
@@ -74,7 +74,7 @@ int main(int argc, char** argv)
                 "NotificationArea {background: transparent;}"
                 "NotificationLayout {background: transparent;}"
                    );
-    
+
     Notifyd* daemon = new Notifyd();
     new NotificationsAdaptor(daemon);
 
@@ -83,7 +83,6 @@ int main(int argc, char** argv)
         qDebug() << "registerService failed: another service with 'org.freedesktop.Notifications' runs already";
     if (!connection.registerObject("/org/freedesktop/Notifications", daemon))
         qDebug() << "registerObject failed: another object with '/org/freedesktop/Notifications' runs already";
-
 
     return a.exec();
 }

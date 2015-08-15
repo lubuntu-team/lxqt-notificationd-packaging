@@ -32,7 +32,7 @@
 #include <QtDBus/QDBusArgument>
 #include <QDebug>
 #include <XdgIcon>
-#include <KF5/KWindowSystem/KWindowSystem>
+#include <KWindowSystem/KWindowSystem>
 
 #include "notification.h"
 #include "notificationwidgets.h"
@@ -109,21 +109,27 @@ void Notification::setValues(const QString &application,
         iconLabel->setPixmap(m_pixmap);
         iconLabel->show();
     }
+    //XXX: workaround to properly set text labels widths (for correct sizeHints after setText)
+    adjustSize();
 
     // application
-	appLabel->setVisible(!application.isEmpty());
+    appLabel->setVisible(!application.isEmpty());
+    appLabel->setFixedWidth(appLabel->width());
     appLabel->setText(application);
 
     // summary
-    summaryLabel->setVisible(!summary.isEmpty());
+    summaryLabel->setVisible(!summary.isEmpty() && application != summary);
+    summaryLabel->setFixedWidth(summaryLabel->width());
     summaryLabel->setText(summary);
-
-    if (application == summary)
-        summaryLabel->setVisible(false);
 
     // body
     bodyLabel->setVisible(!body.isEmpty());
-    bodyLabel->setText(body);
+    bodyLabel->setFixedWidth(bodyLabel->width());
+    //https://developer.gnome.org/notification-spec
+    //Body - This is a multi-line body of text. Each line is a paragraph, server implementations are free to word wrap them as they see fit.
+    //XXX: remove all unsupported tags?!? (supported <b>, <i>, <u>, <a>, <img>)
+    QString formatted(body);
+    bodyLabel->setText(formatted.replace('\n', QStringLiteral("<br/>")));
 
     // Timeout
     // Special values:
@@ -225,7 +231,14 @@ QPixmap Notification::getPixmapFromHint(const QVariant &argument) const
     arg >> channels;
     arg >> data;
     arg.endStructure();
-    QImage img = QImage((uchar*)data.constData(), width, height, QImage::Format_ARGB32).rgbSwapped();
+
+    bool rgb = !hasAlpha && channels == 3 && bitsPerSample == 8;
+    QImage::Format imageFormat = rgb ? QImage::Format_RGB888 : QImage::Format_ARGB32;
+
+    QImage img = QImage((uchar*)data.constData(), width, height, imageFormat);
+
+    if (!rgb)
+        img = img.rgbSwapped();
 
     return QPixmap::fromImage(img);
 }
@@ -310,7 +323,7 @@ void NotificationTimer::pause()
         return;
 
     stop();
-    m_intervalMsec = m_startTime.msecsTo(QDateTime());
+    m_intervalMsec = m_startTime.msecsTo(QDateTime::currentDateTime());
 }
 
 void NotificationTimer::resume()
