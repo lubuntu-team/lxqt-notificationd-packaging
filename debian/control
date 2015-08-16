@@ -33,7 +33,7 @@ Depends:
 Provides:
  notification-daemon,
 Description: LXQt notification daemon
- The LXQt notification daemon
+ The LXQt notification daemon.
  .
  This package contain the LXQt notification daemon.
 
@@ -47,6 +47,6 @@ Depends:
  ${misc:Depends},
  lxqt-notificationd (= ${binary:Version}),
 Description: LXQt notification daemon (debug symbols)
- The LXQt notification daemon
+ The LXQt notification daemon.
  .
  This package contain the debugging symbols.
