@@ -1,8 +1,12 @@
-lxqt-notificationd (0.9.0+20150807-2) UNRELEASED; urgency=medium
+lxqt-notificationd (0.9.0+20150830-1) unstable; urgency=medium
 
-  * removed breaks/replaces
+  * Cherry-picked upstream version 0.9.0+20150830.
+  * Removed breaks/replaces
+  * cme fix dpkg-control 
+  * Added upstream signing key and use it in watch file
+  * Added linker flags -Wl,--as-needed
 
- -- Alf Gaida <agaida@siduction.org>  Sun, 23 Aug 2015 23:03:24 +0200
+ -- Alf Gaida <agaida@siduction.org>  Wed, 02 Sep 2015 22:03:12 +0200
 
 lxqt-notificationd (0.9.0+20150807-1) unstable; urgency=medium
 

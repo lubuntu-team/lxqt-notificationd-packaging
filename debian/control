@@ -1,35 +1,31 @@
 Source: lxqt-notificationd
+Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
+Uploaders: Alf Gaida <agaida@siduction.org>,
+           ChangZhuo Chen (陳昌倬) <czchen@gmail.com>,
+           Andrew Lee (李健秋) <ajqlee@debian.org>
 Section: x11
 Priority: optional
-Maintainer: LXQt Packaging Team <pkg-lxqt-devel@lists.alioth.debian.org>
-Uploaders:
- Alf Gaida <agaida@siduction.org>,
- ChangZhuo Chen (陳昌倬) <czchen@gmail.com>,
- Andrew Lee (李健秋) <ajqlee@debian.org>
-Build-Depends:
- cmake (>= 3.0.2),
- debhelper (>= 9),
- libkf5windowsystem-dev (>= 5.9.0),
- liblxqt0-dev (>= 0.9),
- libqt5x11extras5-dev (>= 5.3),
- libqt5xdg-dev (>= 1.2.0),
- libx11-dev,
- pkg-config,
- qtbase5-private-dev (>= 5.3),
- qttools5-dev (>= 5.3),
- qttools5-dev-tools (>= 5.3),
+Build-Depends: cmake (>= 3.0.2),
+               debhelper (>= 9),
+               libkf5windowsystem-dev,
+               liblxqt0-dev,
+               libqt5x11extras5-dev,
+               libqt5xdg-dev,
+               libx11-dev,
+               pkg-config,
+               qtbase5-private-dev,
+               qttools5-dev,
+               qttools5-dev-tools
 Standards-Version: 3.9.6
-Homepage: https://github.com/lxde/lxqt-notificationd
-Vcs-Git: git://anonscm.debian.org/pkg-lxqt/lxqt-notificationd.git
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-lxqt/lxqt-notificationd.git
+Vcs-Git: git://anonscm.debian.org/pkg-lxqt/lxqt-notificationd.git
+Homepage: https://github.com/lxde/lxqt-notificationd
 
 Package: lxqt-notificationd
 Architecture: any
-Depends:
- ${misc:Depends},
- ${shlibs:Depends},
-Provides:
- notification-daemon,
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Provides: notification-daemon
 Description: LXQt notification daemon
  The LXQt notification daemon.
  .
@@ -39,9 +35,8 @@ Package: lxqt-notificationd-dbg
 Architecture: any
 Section: debug
 Priority: extra
-Depends:
- ${misc:Depends},
- lxqt-notificationd (= ${binary:Version}),
+Depends: ${misc:Depends},
+         lxqt-notificationd (= ${binary:Version})
 Description: LXQt notification daemon (debug symbols)
  The LXQt notification daemon.
  .
