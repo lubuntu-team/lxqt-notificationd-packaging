@@ -4,18 +4,12 @@ lxqt-notificationd (0.9.0+20150903-1) experimental; urgency=medium
   * Cleaned up .gitignore
   * Switched to experimental because of LXQt namespace change
   * Added minimum version for liblxqt0-dev (>= 0.9.0+20150911)
-
- -- Alf Gaida <agaida@siduction.org>  Thu, 24 Sep 2015 23:17:03 +0200
-
-lxqt-notificationd (0.9.0+20150830-1) unstable; urgency=medium
-
-  * Cherry-picked upstream version 0.9.0+20150830.
   * Removed breaks/replaces
-  * cme fix dpkg-control 
+  * Beautifyed control 
   * Added upstream signing key and use it in watch file
   * Added linker flags -Wl,--as-needed
 
- -- Alf Gaida <agaida@siduction.org>  Wed, 02 Sep 2015 22:03:12 +0200
+ -- Alf Gaida <agaida@siduction.org>  Thu, 24 Sep 2015 23:45:25 +0200
 
 lxqt-notificationd (0.9.0+20150807-1) unstable; urgency=medium
 
