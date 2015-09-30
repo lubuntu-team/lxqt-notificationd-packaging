@@ -5,7 +5,7 @@ lxqt-notificationd (0.9.0+20150903-1) experimental; urgency=medium
   * Switched to experimental because of LXQt namespace change
   * Added minimum version for liblxqt0-dev (>= 0.9.0+20150911)
   * Removed breaks/replaces
-  * Beautifyed control 
+  * Beautifyed control
   * Added upstream signing key and use it in watch file
   * Added linker flags -Wl,--as-needed
 
