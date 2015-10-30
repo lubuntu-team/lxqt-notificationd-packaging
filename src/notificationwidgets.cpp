@@ -39,77 +39,77 @@
 NotificationActionsWidget::NotificationActionsWidget(const QStringList& actions, QWidget *parent)
     : QWidget(parent)
 {
-    for (int i = 0; i < actions.count(); ++i)
+    for (int i = 0; i < actions.count(); i += 2)
     {
-        if (i == actions.count()-1)
+        QString key = actions[i];
+        QString value;
+
+        if (i == actions.count() - 1)
         {
-            qDebug() << "NotificationActionsWidget actions has contains pairs (id, value, id, value...) got odd count:" << actions.count() << "Actions:" << actions;
-            m_actionMap[actions.at(i)] = actions.at(i);
+            value = key;
+            qWarning() << "Odd number of elements in action list. Last action will use key as text (" << key << ")";
+        } else {
+            value = actions[i + 1];
         }
-        else
-        {
-            m_actionMap[actions.at(i)] = actions.at(i+1);
-        }
-        ++i; // move to the next ID
+
+        if (key == "default")
+            m_defaultAction = key;
+
+        m_actions.append({key, value});
     }
 
-    // if there is only one action let's take it as a default one
-    if (m_actionMap.count() == 1)
-        m_defaultAction = m_actionMap[m_actionMap.keys().at(0)];
-
-    qDebug() << "NotificationActionsWidget processed actions:" << m_actionMap;
+    // if there is only one action let's use it as the default one
+    if (m_actions.count() == 1)
+        m_defaultAction = m_actions[0].first;
 }
 
 
 NotificationActionsButtonsWidget::NotificationActionsButtonsWidget(const QStringList& actions, QWidget *parent)
     : NotificationActionsWidget(actions, parent)
 {
-    QHashIterator<QString,QString> it(m_actionMap);
     QHBoxLayout *l = new QHBoxLayout();
     setLayout(l);
 
     QButtonGroup *group = new QButtonGroup(this);
 
-    while (it.hasNext())
+    for (auto const & action : m_actions)
     {
-        it.next();
-        QPushButton *b = new QPushButton(it.value(), this);
+        QPushButton *b = new QPushButton(action.second, this);
+        b->setObjectName(action.first);
         l->addWidget(b);
         group->addButton(b);
-        if (it.key() == "default")
-        {
+
+        if (action.first == m_defaultAction)
             b->setFocus(Qt::OtherFocusReason);
-            m_defaultAction = it.key();
-        }
     }
-    connect(group, SIGNAL(buttonClicked(QAbstractButton*)),
-            this, SLOT(actionButtonActivated(QAbstractButton*)));
+    connect(group, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked),
+            this, &NotificationActionsButtonsWidget::actionButtonActivated);
 }
 
 void NotificationActionsButtonsWidget::actionButtonActivated(QAbstractButton* button)
 {
-    emit actionTriggered(m_actionMap.key(button->text()));
+    emit actionTriggered(button->objectName());
 }
 
 
 NotificationActionsComboWidget::NotificationActionsComboWidget(const QStringList& actions, QWidget *parent)
     : NotificationActionsWidget(actions, parent)
 {
-    QHashIterator<QString,QString> it(m_actionMap);
     QHBoxLayout *l = new QHBoxLayout();
     setLayout(l);
 
     l->addWidget(new QLabel(tr("Actions:"), this));
     m_comboBox = new QComboBox(this);
     int currentIndex = -1;
-    while (it.hasNext())
+
+    for (int i = 0; i < m_actions.count(); ++i)
     {
-        it.next();
-        m_comboBox->addItem(it.value(), it.key());
-        if (it.key() == "default")
+        auto const & action = m_actions[i];
+
+        m_comboBox->addItem(action.second, action.first);
+        if (action.first == m_defaultAction)
         {
-            currentIndex = m_comboBox->count()-1;
-            m_defaultAction = it.key();
+            currentIndex = i;
         }
     }
     l->addWidget(m_comboBox);
@@ -119,8 +119,8 @@ NotificationActionsComboWidget::NotificationActionsComboWidget(const QStringList
 
     QPushButton *b = new QPushButton(tr("OK"), this);
     l->addWidget(b);
-    connect(b, SIGNAL(clicked()),
-            this, SLOT(actionComboBoxActivated()));
+    connect(b, &QPushButton::clicked,
+            this, &NotificationActionsComboWidget::actionComboBoxActivated);
 }
 
 void NotificationActionsComboWidget::actionComboBoxActivated()
@@ -130,5 +130,5 @@ void NotificationActionsComboWidget::actionComboBoxActivated()
     int ix = m_comboBox->currentIndex();
     if (ix == -1)
         return;
-    emit actionTriggered(m_actionMap.key(m_comboBox->itemText(ix)));
+    emit actionTriggered(m_actions[ix].first);
 }

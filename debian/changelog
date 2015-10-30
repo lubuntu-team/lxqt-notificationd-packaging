@@ -1,3 +1,9 @@
+lxqt-notificationd (0.9.0+20151028-1) experimental; urgency=medium
+
+  * Cherry-picked upstream version 0.9.0+20151028. 
+
+ -- Alf Gaida <agaida@siduction.org>  Fri, 30 Oct 2015 01:42:07 +0100
+
 lxqt-notificationd (0.9.0+20150903-1) experimental; urgency=medium
 
   * Cherry-picked upstream version 0.9.0+20150903.
