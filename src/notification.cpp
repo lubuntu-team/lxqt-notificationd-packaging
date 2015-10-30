@@ -33,11 +33,14 @@
 #include <QDebug>
 #include <XdgIcon>
 #include <KWindowSystem/KWindowSystem>
+#include <QMouseEvent>
+#include <QPushButton>
 
 #include "notification.h"
 #include "notificationwidgets.h"
 
 #define ICONSIZE QSize(32, 32)
+
 
 Notification::Notification(const QString &application,
                            const QString &summary, const QString &body,
@@ -46,6 +49,7 @@ Notification::Notification(const QString &application,
                            QWidget *parent)
     : QWidget(parent),
       m_timer(0),
+      m_linkHovered(false),
       m_actionWidget(0)
 {
     setupUi(this);
@@ -57,7 +61,14 @@ Notification::Notification(const QString &application,
 
     setValues(application, summary, body, icon, timeout, actions, hints);
 
-    connect(closeButton, SIGNAL(clicked()), this, SLOT(closeButton_clicked()));
+    connect(closeButton, &QPushButton::clicked, this, &Notification::closeButton_clicked);
+
+    for (QLabel *label : {bodyLabel, summaryLabel})
+    {
+        connect(label, &QLabel::linkHovered, this, &Notification::linkHovered);
+
+        label->installEventFilter(this);
+    }
 }
 
 void Notification::setValues(const QString &application,
@@ -145,7 +156,7 @@ void Notification::setValues(const QString &application,
     if (timeout > 0)
     {
         m_timer = new NotificationTimer(this);
-        connect(m_timer, SIGNAL(timeout()), this, SIGNAL(timeout()));
+        connect(m_timer, &NotificationTimer::timeout, this, &Notification::timeout);
         m_timer->start(timeout);
     }
 
@@ -174,8 +185,10 @@ void Notification::setValues(const QString &application,
             m_actionWidget = new NotificationActionsButtonsWidget(actions, this);
         else
             m_actionWidget = new NotificationActionsComboWidget(actions, this);
-        connect(m_actionWidget, SIGNAL(actionTriggered(const QString &)),
-                this, SIGNAL(actionTriggered(const QString &)));
+
+        connect(m_actionWidget, &NotificationActionsWidget::actionTriggered,
+                this, &Notification::actionTriggered);
+
         actionsLayout->addWidget(m_actionWidget);
         m_actionWidget->show();
     }
@@ -270,6 +283,25 @@ void Notification::leaveEvent(QEvent * event)
 {
     if (m_timer)
         m_timer->resume();
+}
+
+bool Notification::eventFilter(QObject *obj, QEvent *event)
+{
+    // Catch mouseReleaseEvent on child labels if a link is not currently being hovered.
+    //
+    // This workarounds QTBUG-49025 where clicking on text does not propagate the mouseReleaseEvent
+    // to the parent even though the text is not selectable and no link is being clicked.
+    if (event->type() == QEvent::MouseButtonRelease && !m_linkHovered)
+    {
+        mouseReleaseEvent(static_cast<QMouseEvent*>(event));
+        return true;
+    }
+    return false;
+}
+
+void Notification::linkHovered(QString link)
+{
+    m_linkHovered = !link.isEmpty();
 }
 
 void Notification::mouseReleaseEvent(QMouseEvent * event)

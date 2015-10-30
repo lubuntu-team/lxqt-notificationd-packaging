@@ -82,7 +82,7 @@
         <string notr="true">TextLabel</string>
        </property>
        <property name="textFormat">
-        <enum>Qt::RichText</enum>
+        <enum>Qt::PlainText</enum>
        </property>
        <property name="wordWrap">
         <bool>false</bool>
