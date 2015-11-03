@@ -1,3 +1,10 @@
+lxqt-notificationd (0.10.0-1) unstable; urgency=medium
+
+  * Cherry-picking upstream version 0.10.0. 
+  * Set minimum versions for libqtxdg and liblxqt
+
+ -- Alf Gaida <agaida@siduction.org>  Tue, 03 Nov 2015 01:57:30 +0100
+
 lxqt-notificationd (0.9.0+20151028-2) experimental; urgency=medium
 
   * set minimum versions for libqtxdg and liblxqt
