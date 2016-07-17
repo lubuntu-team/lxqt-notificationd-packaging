@@ -1,4 +1,4 @@
-# there will not be manpages in a foreseable futore
+# there will not be manpages in a foreseable future
 lxqt-notificationd: binary-without-manpage usr/bin/lxqt-config-notificationd
 lxqt-notificationd: binary-without-manpage usr/bin/lxqt-notificationd
 

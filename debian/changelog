@@ -1,3 +1,19 @@
+lxqt-notificationd (0.10.0-3) experimental; urgency=medium
+
+  * Preparing the upcoming release, switch to experimental
+  * Added build dependency libqt5xdgiconloader-dev, set
+    minimum versions
+  * Bumped Standards to 3.9.8, no changes needed
+  * Fixed VCS-Fields, use https and plain /git/
+  * Added Recommends lxqt-notificationd-l10n
+  * Fixed copyright Format field
+  * Bumped copyright years
+  * Added translation control to rules
+  * Set CMAKE_BUILD_TYPE=RelWithDebInfo
+  * Exported LC_ALL=C.UTF-8, make builds reproducible
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 17 Jul 2016 19:07:09 +0200
+
 lxqt-notificationd (0.10.0-2) unstable; urgency=medium
 
   * Remove dbg package in favor of dbgsym.
