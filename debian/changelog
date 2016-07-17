@@ -1,5 +1,6 @@
-lxqt-notificationd (0.10.0-3) experimental; urgency=medium
+lxqt-notificationd (0.10.96~11-g0a0a1d5-1) experimental; urgency=medium
 
+  * Cherry-picking upstream version 0.10.96~11-g0a0a1d5.
   * Preparing the upcoming release, switch to experimental
   * Added build dependency libqt5xdgiconloader-dev, set
     minimum versions
@@ -11,8 +12,9 @@ lxqt-notificationd (0.10.0-3) experimental; urgency=medium
   * Added translation control to rules
   * Set CMAKE_BUILD_TYPE=RelWithDebInfo
   * Exported LC_ALL=C.UTF-8, make builds reproducible
+  * Added README.md to docs
 
- -- Alf Gaida <agaida@siduction.org>  Sun, 17 Jul 2016 19:07:09 +0200
+ -- Alf Gaida <agaida@siduction.org>  Sun, 17 Jul 2016 19:41:54 +0200
 
 lxqt-notificationd (0.10.0-2) unstable; urgency=medium
 
