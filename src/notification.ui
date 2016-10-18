@@ -10,6 +10,9 @@
     <height>77</height>
    </rect>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="horizontalSpacing">
     <number>9</number>
@@ -135,6 +138,9 @@
       <widget class="QToolButton" name="closeButton">
        <property name="text">
         <string notr="true">x</string>
+       </property>
+       <property name="icon">
+        <iconset theme="window-close"/>
        </property>
        <property name="autoRaise">
         <bool>true</bool>
