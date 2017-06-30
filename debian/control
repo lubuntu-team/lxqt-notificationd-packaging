@@ -12,7 +12,7 @@ Build-Depends: debhelper (>= 10),
                libqt5x11extras5-dev,
                libx11-dev,
                qtbase5-private-dev
-Standards-Version: 3.9.8
+Standards-Version: 4.0.0
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-lxqt/lxqt-notificationd.git/?h=debian/sid
 Vcs-Git: https://anonscm.debian.org/git/pkg-lxqt/lxqt-notificationd.git -b debian/sid
 Homepage: https://github.com/lxde/lxqt-notificationd
@@ -21,7 +21,8 @@ Package: lxqt-notificationd
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}
-Recommends: lxqt-notificationd-l10n
+Recommends: lxqt-notificationd-l10n,
+            lxqt-qtplugin
 Provides: notification-daemon
 Description: LXQt notification daemon
  The LXQt notification daemon.

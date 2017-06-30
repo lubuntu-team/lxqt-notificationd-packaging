@@ -1,7 +1,15 @@
+lxqt-notificationd (0.11.1-2) unstable; urgency=medium
+
+  * Bumped Standards to 4.0.0 - no changes needed
+  * Fixed typo in changelog
+  * Added Recommends: lxqt-qtplugin (Closes: #866253)
+
+ -- Alf Gaida <agaida@siduction.org>  Fri, 30 Jun 2017 20:58:35 +0200
+
 lxqt-notificationd (0.11.1-1) unstable; urgency=medium
 
   * Cherry-picking upstream release 0.11.1.
-  * Removed some buid dependencies:
+  * Removed some build dependencies:
     -cmake
     -libqt5xdg-dev
     -libqt5xdgiconloader-dev
