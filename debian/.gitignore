@@ -1,7 +1,8 @@
 /*.debhelper
 /*.log
 /*.substvars
+/debhelper-build-stamp
 /files
 
 /lxqt-notificationd/
-/lxqt-notificationd-dbg/
+

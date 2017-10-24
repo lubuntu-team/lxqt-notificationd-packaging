@@ -1,3 +1,12 @@
+lxqt-notificationd (0.12.0-1) experimental; urgency=medium
+
+  * Cherry-picking upstream release 0.11.0.
+  * Bumped Standards to 4.1.1 - no changes needed
+  * Bumped liblxqt dependency to >= 0.12.0
+  * Added Breaks/Replaces for lxqt-common << 0.12.0
+
+ -- Alf Gaida <agaida@siduction.org>  Tue, 24 Oct 2017 18:24:23 +0200
+
 lxqt-notificationd (0.11.1-2) unstable; urgency=medium
 
   * Bumped Standards to 4.0.0 - no changes needed
