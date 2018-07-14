@@ -1,0 +1,15 @@
+Description: Keep notification height when others are added and/or removed
+Author: Piotr Wójcik <chocimier@tlen.pl>
+Origin: upstream
+Applied-Upstream: commit:db5707d
+Last-Update: 2018-07-14
+--- a/src/notification.cpp
++++ b/src/notification.cpp
+@@ -60,6 +60,7 @@ Notification::Notification(const QString
+ 
+     setMaximumWidth(parent->width());
+     setMinimumWidth(parent->width());
++    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+ 
+     setValues(application, summary, body, icon, timeout, actions, hints);
+ 
