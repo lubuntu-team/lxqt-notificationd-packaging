@@ -1,0 +1,4 @@
+etc/xdg/autostart/lxqt-notifications.desktop
+usr/share/applications/lxqt-config-notificationd.desktop
+usr/bin/lxqt-notificationd
+usr/bin/lxqt-config-notificationd

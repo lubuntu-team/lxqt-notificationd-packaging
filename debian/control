@@ -33,3 +33,14 @@ Description: LXQt notification daemon
  The LXQt notification daemon.
  .
  This package contain the LXQt notification daemon.
+
+Package: lxqt-notificationd-l10n
+Architecture: all
+Multi-Arch: foreign
+Section: localization
+Depends: ${misc:Depends},
+         qttranslations5-l10n
+Breaks: lxqt-notificationd (<< 0.11.0)
+Replaces: lxqt-notificationd (<< 0.11.0)
+Description: Language package for lxqt-notificationd
+ This package contains the l10n files needed by lxqt-notificationd.
