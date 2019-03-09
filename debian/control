@@ -22,10 +22,8 @@ Homepage: https://github.com/lxqt/lxqt-notificationd
 
 Package: lxqt-notificationd
 Architecture: any
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
-Recommends: lxqt-notificationd-l10n,
-            lxqt-qtplugin
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: lxqt-notificationd-l10n, lxqt-qtplugin
 Breaks: lxqt-common (<< 0.12.0)
 Replaces: lxqt-common (<< 0.12.0)
 Provides: notification-daemon
@@ -38,8 +36,7 @@ Package: lxqt-notificationd-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: ${misc:Depends},
-         qttranslations5-l10n
+Depends: qttranslations5-l10n, ${misc:Depends}
 Breaks: lxqt-notificationd (<< 0.11.0)
 Replaces: lxqt-notificationd (<< 0.11.0)
 Description: Language package for lxqt-notificationd
