@@ -1,3 +1,9 @@
+lxqt-notificationd (0.14.1-1ubuntu1) focal; urgency=medium
+
+  * Update build depends according to merge from debian.
+
+ -- Raman Sarda <theloudspeaker@lubuntu.me>  Thu, 30 Jan 2020 02:45:02 +0530
+
 lxqt-notificationd (0.14.1-0ubuntu1) disco; urgency=medium
 
   * New upstream release.
