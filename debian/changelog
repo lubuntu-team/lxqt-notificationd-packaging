@@ -2,6 +2,7 @@ lxqt-notificationd (0.15.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
     - Update upstream signing key.
+    - Update LXQt build depends.
   * Update Standards-version to 4.5.0, no changes needed.
   * Migrate to using debhelper-compat.
 
