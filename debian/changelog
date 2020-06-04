@@ -1,4 +1,4 @@
-lxqt-notificationd (0.15.0-0ubuntu1) UNRELEASED; urgency=medium
+lxqt-notificationd (0.15.0-0ubuntu1) groovy; urgency=medium
 
   * New upstream release.
     - Update upstream signing key.
@@ -6,7 +6,7 @@ lxqt-notificationd (0.15.0-0ubuntu1) UNRELEASED; urgency=medium
   * Update Standards-version to 4.5.0, no changes needed.
   * Migrate to using debhelper-compat.
 
- -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 30 Apr 2020 23:07:12 -0500
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Thu, 04 Jun 2020 14:03:55 -0500
 
 lxqt-notificationd (0.14.1-1ubuntu1) focal; urgency=medium
 
