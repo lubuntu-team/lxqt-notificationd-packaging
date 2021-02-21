@@ -1,3 +1,21 @@
+lxqt-notificationd (0.16.0-1ubuntu1) hirsute; urgency=medium
+
+  * New upstream version.
+  * Bump debhelper-compat requirement to 13.
+
+ -- Raman Sarda <theloudspeaker@disroot.org>  Mon, 22 Feb 2021 00:45:40 +0530
+
+lxqt-notificationd (0.16.0-1) unstable; urgency=medium
+
+  [ Alf Gaida ]
+  * Switched to gbp
+  * Bumped Standards-Version to 4.4.0, no changes needed
+
+  [ Andrew Lee (李健秋) ]
+  * New upstream release.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Wed, 06 Jan 2021 17:26:15 +0800
+
 lxqt-notificationd (0.15.0-0ubuntu1) groovy; urgency=medium
 
   * New upstream release.
@@ -14,12 +32,32 @@ lxqt-notificationd (0.14.1-1ubuntu1) focal; urgency=medium
 
  -- Raman Sarda <theloudspeaker@lubuntu.me>  Thu, 30 Jan 2020 02:45:02 +0530
 
+lxqt-notificationd (0.14.1-1) unstable; urgency=medium
+
+  * Cherry-picking new upstream version 0.14.1.
+  * Bumped minimum version liblxqt0-dev (>= 0.14.1~)
+
+ -- Alf Gaida <agaida@siduction.org>  Tue, 26 Feb 2019 01:52:36 +0100
+
 lxqt-notificationd (0.14.1-0ubuntu1) disco; urgency=medium
 
   * New upstream release.
   * Run wrap-and-sort.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 09 Mar 2019 13:08:37 -0600
+
+lxqt-notificationd (0.14.0-1) unstable; urgency=medium
+
+  * Cherry-picking new upstream version 0.14.0.
+  * Bumped Standards to 4.3.0, no changes needed
+  * Dropped d/compat, use debhelper-compat = 12, no changes needed
+  * Fixed years in d/copyright
+  * Bumped minimum version liblxqt0-dev (>= 0.14.0~)
+  * Removed obsolete PULL_TRANSLATIONS= OFF from dh_auto_configure
+  * Added l10n-package, moved from lxqt-l10n
+  * Added d/upstream/metadata
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 27 Jan 2019 12:41:20 +0100
 
 lxqt-notificationd (0.14.0-0ubuntu1) disco; urgency=medium
 
@@ -31,6 +69,13 @@ lxqt-notificationd (0.14.0-0ubuntu1) disco; urgency=medium
   * Add a lxqt-notificationd-l10n package.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sat, 26 Jan 2019 00:22:05 -0600
+
+lxqt-notificationd (0.13.0-1) unstable; urgency=medium
+
+  * Cherry-picking new upstream version 0.13.0.
+  * Bumped build dependency liblxqt0-dev to >= 0.13.0~
+
+ -- Alf Gaida <agaida@siduction.org>  Thu, 24 May 2018 21:45:09 +0200
 
 lxqt-notificationd (0.13.0-0ubuntu2) cosmic; urgency=medium
 
@@ -195,3 +240,4 @@ lxqt-notificationd (0.9.0+20150807-1) unstable; urgency=medium
   * Removing whitespaces at EOL and EOF.
 
  -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sun, 16 Aug 2015 17:21:16 +0800
+
