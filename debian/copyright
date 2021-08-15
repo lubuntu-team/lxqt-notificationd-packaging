@@ -7,9 +7,16 @@ Copyright: 2012-2018 LXQt team
            2010-2012 Razor team
 License: LGPL-2.1+
 
+Files: test/main.cpp
+       test/mainwindow.cpp
+       test/mainwindow.h
+Copyright: 2012, Alec Moskvin <alecm@gmx.com>
+License: LGPL-2.1+
+
 Files: debian/*
-Copyright: 2014-2018 Alf Gaida <agaida@siduction.org>
-           2015      Andrew Lee (李健秋) <ajqlee@debian.org>
+Copyright: 2021,      Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
+           2014-2018, Alf Gaida <agaida@siduction.org>
+           2015,      Andrew Lee (李健秋) <ajqlee@debian.org>
 License: LGPL-2.1+
 
 License: LGPL-2.1+

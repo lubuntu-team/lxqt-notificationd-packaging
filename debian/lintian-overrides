@@ -1,6 +1,6 @@
 # there will not be manpages in a foreseable future
-lxqt-notificationd: binary-without-manpage usr/bin/lxqt-config-notificationd
-lxqt-notificationd: binary-without-manpage usr/bin/lxqt-notificationd
+lxqt-notificationd: no-manual-page usr/bin/lxqt-config-notificationd
+lxqt-notificationd: no-manual-page usr/bin/lxqt-notificationd
 
 # LXQt is not in freedesktop specs yet
 lxqt-notificationd: desktop-entry-invalid-category LXQt usr/share/applications/lxqt-config-notificationd.desktop
