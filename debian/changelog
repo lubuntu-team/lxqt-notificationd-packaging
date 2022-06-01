@@ -1,6 +1,7 @@
 lxqt-notificationd (1.1.0-0ubuntu1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Bump build dependencies.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Wed, 01 Jun 2022 15:53:58 -0500
 
