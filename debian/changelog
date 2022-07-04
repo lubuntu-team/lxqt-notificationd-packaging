@@ -3,6 +3,7 @@ lxqt-notificationd (1.1.0-0ubuntu1~ppa1) jammy; urgency=medium
   * Backport to Jammy.
   * Updated copyright file.
   * Bumped Standards-Version to 4.6.1, no changes necessary.
+  * Removed obsolete "-Wl,--as-needed" linker flag.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 08:39:40 -0500
 
