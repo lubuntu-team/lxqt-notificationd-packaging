@@ -1,3 +1,9 @@
+lxqt-notificationd (1.1.0-0ubuntu1~ppa1) jammy; urgency=medium
+
+  * Backport to Jammy.
+
+ -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 08:39:40 -0500
+
 lxqt-notificationd (1.1.0-0ubuntu1) kinetic; urgency=medium
 
   * New upstream release.
