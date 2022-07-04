@@ -5,6 +5,7 @@ lxqt-notificationd (1.1.0-0ubuntu1~ppa1) jammy; urgency=medium
   * Bumped Standards-Version to 4.6.1, no changes necessary.
   * Removed obsolete "-Wl,--as-needed" linker flag.
   * Added "Rules-Requires-Root: no" to debian/control.
+  * Removed trailing whitespace from changelog.
 
  -- Aaron Rainbolt <arraybolt3@gmail.com>  Mon, 04 Jul 2022 08:39:40 -0500
 
@@ -270,4 +271,3 @@ lxqt-notificationd (0.9.0+20150807-1) unstable; urgency=medium
   * Removing whitespaces at EOL and EOF.
 
  -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sun, 16 Aug 2015 17:21:16 +0800
-
