@@ -19,6 +19,7 @@ Vcs-Git: https://phab.lubuntu.me/source/lxqt-notificationd.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/lxqt-team/lxqt-notificationd
 XS-Debian-Vcs-Git: https://salsa.debian.org/lxqt-team/lxqt-notificationd.git
 Homepage: https://github.com/lxqt/lxqt-notificationd
+Rules-Requires-Root: no
 
 Package: lxqt-notificationd
 Architecture: any
