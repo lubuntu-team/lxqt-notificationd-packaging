@@ -3,6 +3,7 @@ lxqt-notificationd (1.4.0-0ubuntu1) UNRELEASED; urgency=medium
   * New upstream release.
   * Bump build dependencies.
   * Fix outdated Lintian override formatting.
+  * Add an upstream metadata file in the packaging.
 
  -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 12 Nov 2023 18:17:36 -0600
 
