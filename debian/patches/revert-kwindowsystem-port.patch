@@ -1,0 +1,30 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,7 +16,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ option(UPDATE_TRANSLATIONS "Update source translation translations/*.ts files" OFF)
+ option(LXQT_NOTIFICATION_BUILD_TESTS "Build LXQt Notification tests" OFF)
+ 
+-set(KF5_MINIMUM_VERSION "5.101.0")
++set(KF5_MINIMUM_VERSION "5.36.0")
+ set(LXQT_MINIMUM_VERSION "1.4.0")
+ set(QT_MINIMUM_VERSION "5.15.0")
+ 
+--- a/src/notification.cpp
++++ b/src/notification.cpp
+@@ -33,7 +33,6 @@
+ #include <QDebug>
+ #include <XdgIcon>
+ #include <KWindowSystem/KWindowSystem>
+-#include <KWindowSystem/KX11Extras>
+ #include <QMouseEvent>
+ #include <QPushButton>
+ #include <QStyle>
+@@ -327,7 +326,7 @@ void Notification::mouseReleaseEvent(QMo
+         return;
+     }
+ 
+-    const auto ids = KX11Extras::stackingOrder();
++    const auto ids = KWindowSystem::stackingOrder();
+     for (const WId &i : ids)
+     {
+         KWindowInfo info = KWindowInfo(i, NET::WMName | NET::WMVisibleName);
