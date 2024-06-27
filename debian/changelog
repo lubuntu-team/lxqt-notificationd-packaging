@@ -3,6 +3,7 @@ lxqt-notificationd (2.0.1-0ubuntu1) UNRELEASED; urgency=medium
   * New upstream release.
   * Update copyright file.
   * Bump Standards-Version to 4.7.0, no changes necessary.
+  * Adjust build dependencies.
 
  -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Wed, 26 Jun 2024 23:06:06 -0500
 

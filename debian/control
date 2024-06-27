@@ -7,12 +7,14 @@ Uploaders: Alf Gaida <agaida@siduction.org>,
 Section: x11
 Priority: optional
 Build-Depends: debhelper-compat (= 13),
-               libkf5windowsystem-dev,
-               liblxqt1-dev (>= 1.4.0),
-               libqt5svg5-dev,
-               libqt5x11extras5-dev,
+               layer-shell-qt,
+               libkf6windowsystem-dev,
+               liblayershellqtinterface-dev,
+               liblxqt2-dev (>= 1.4.0),
                libx11-dev,
-               qtbase5-private-dev
+               qt6-base-private-dev,
+               qt6-svg-dev,
+               qt6-wayland-dev
 Standards-Version: 4.7.0
 Vcs-Browser: https://git.lubuntu.me/Lubuntu/lxqt-notificationd-packaging
 Vcs-Git: https://git.lubuntu.me/Lubuntu/lxqt-notificationd-packaging.git
@@ -35,7 +37,7 @@ Package: lxqt-notificationd-l10n
 Architecture: all
 Multi-Arch: foreign
 Section: localization
-Depends: qttranslations5-l10n, ${misc:Depends}
+Depends: qt6-translations-l10n, ${misc:Depends}
 Description: Language package for lxqt-notificationd
  The l10n files for lxqt-notificationd.
  .
