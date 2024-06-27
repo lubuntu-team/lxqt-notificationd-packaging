@@ -1,3 +1,9 @@
+lxqt-notificationd (2.0.0-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Aaron Rainbolt <arraybolt3@ubuntu.com>  Wed, 26 Jun 2024 23:06:06 -0500
+
 lxqt-notificationd (1.4.0-0ubuntu1) noble; urgency=medium
 
   * New upstream release.
