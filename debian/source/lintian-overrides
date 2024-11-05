@@ -1,0 +1,2 @@
+# This is expected
+lxqt-notificationd source: very-long-line-length-in-source-file * > 512 [test/lxqt-notification-test.sh:*]

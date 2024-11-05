@@ -1,0 +1,4 @@
+# This is expected
+lxqt-notificationd: desktop-entry-lacks-keywords-entry [usr/share/applications/*.desktop]
+lxqt-notificationd: desktop-entry-invalid-category LXQt [usr/share/applications/*.desktop]
+lxqt-notificationd: no-manual-page [usr/bin/*]
